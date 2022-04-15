@@ -3,14 +3,21 @@ using TableStorage;
 using Azure.Data.Tables.Models;
 using Azure;
 
-TableRepository tableRepository = new TableRepository();
-string partitionKey = "huhaaaha";
-string rowKey = "huhaaaha";
+string tableName = "mytable";
+TableRepository tableRepository = new TableRepository(tableName);
 
-tableRepository.CreateTableEntity(partitionKey, rowKey, "Product", 10.00, 10);
+string partitionKey = "parKey";
+string rowKey = "rowKey";
+
+var entity = new TableEntity(partitionKey, rowKey)
+{
+    ["Name"] = "John Doe",
+    ["Age"] = "42",
+    ["Address"] = "123 Main St"
+};
+tableRepository.CreateTableEntity(entity);
 
 Pageable<TableEntity> queryResultsFilter = tableRepository.QueryTableEntity(partitionKey);
-
 foreach (TableEntity qEntity in queryResultsFilter)
 {
     Console.WriteLine($"{qEntity.GetString("Product")}: {qEntity.GetDouble("Price")}");

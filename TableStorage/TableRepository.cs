@@ -5,7 +5,13 @@ namespace TableStorage
 {
     public class TableRepository
     {
-        private readonly TableClient _tableClient = CreateTable("huhaaaha");
+        private readonly TableClient _tableClient;
+
+        public TableRepository(string tableName)
+        {
+            _tableClient = TableRepository.CreateTable(tableName);
+        }
+
         public static TableClient CreateTable(string tableName)
         {
             var tableClient = new TableClient(DatabaseConnection<Program>.Get(), tableName);
@@ -19,15 +25,9 @@ namespace TableStorage
             return true;
         }
 
-        public bool CreateTableEntity(string partitionKey, string rowKey, string Product, double Price, int Quantity)
+        public bool CreateTableEntity(TableEntity entity)
         {
-            var entity = new TableEntity(partitionKey, rowKey)
-            {
-                { "Product", Product },
-                { "Price", Price },
-                { "Quantity", Quantity }
-            };
-            _tableClient.AddEntity(entity);
+            _tableClient.InsertEntity(entity);
             return true;
         }
 
