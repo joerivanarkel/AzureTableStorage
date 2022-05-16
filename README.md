@@ -1,3 +1,5 @@
+[← Return to AZ-204](README.md)<br>
+
 [![.NET](https://github.com/joerivanarkel/AzureTableStorage/actions/workflows/dotnet.yml/badge.svg)](https://github.com/joerivanarkel/AzureTableStorage/actions/workflows/dotnet.yml)
 ## Azure Table Storage
 In this example I am Creating, Querying and Deleting Tables and TableEntities in Azure Table Storage. I have used dotnet secrets to set up a secret connectionstring, in ``DatabaseConnection.cs`` it is converted from secret to string. I am using the Azure.Data.Tables NuGet package.
