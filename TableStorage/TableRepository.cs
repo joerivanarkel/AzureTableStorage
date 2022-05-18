@@ -1,5 +1,6 @@
 using Azure;
 using Azure.Data.Tables;
+using UserSecrets;
 
 namespace TableStorage
 {
@@ -14,7 +15,7 @@ namespace TableStorage
 
         public static TableClient CreateTable(string tableName)
         {
-            var tableClient = new TableClient(DatabaseConnection<Program>.Get(), tableName);
+            var tableClient = new TableClient(UserSecrets<Program>.GetSecret("connectionstring"), tableName);
             tableClient.CreateIfNotExists();
             return tableClient;
         }

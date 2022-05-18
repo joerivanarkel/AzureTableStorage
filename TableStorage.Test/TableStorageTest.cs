@@ -11,7 +11,7 @@ public class TableStorageTest
     public void ShouldCreateTableEntity()
     {
         // Arrange
-        TableRepository tableRepository = new TableRepository();
+        TableRepository tableRepository = new TableRepository("testtable");
         string partitionKey = "huhaaaha";
         string rowKey = "huhaaaha";
 
