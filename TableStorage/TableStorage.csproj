@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Data.Tables" Version="12.5.0" />
-    <PackageReference Include="joerivanarkel.UserSecrets" Version="0.1.2" />
+    <PackageReference Include="joerivanarkel.UserSecrets" Version="0.1.4" />
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.8" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
